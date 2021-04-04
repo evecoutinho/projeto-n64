@@ -1,4 +1,5 @@
 const { Schema, model } = require("mongoose");
+const { options } = require("../routes/games");
 
 const GameSchema = new Schema(
   {
@@ -8,8 +9,8 @@ const GameSchema = new Schema(
     },
     otherTitles: [String],
     developers: [String],
-    publishres: [String],
-    genrers: [String],
+    publishers: [String],
+    genres: [String],
     firstReleased: Date,
     japanReleased: Date,
     usaReleased: Date,
@@ -42,5 +43,15 @@ module.exports = {
     if (fields) query.select(fields.split(","));
     if (orderBy) query.sort({ [orderBy]: sortBy });
     return query.exec();
+  },
+  store: (data) => {
+    const game = new Game(data);
+    return game.save();
+  },
+  update: (id, data, options = { new: true }) => {
+    return Game.findOneAndUpdate({ _id: id }, data, options);
+  },
+  destroy: (id) =>{
+    return Game.deleteOne({_id : id});
   },
 };

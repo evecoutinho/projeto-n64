@@ -1,5 +1,5 @@
 ### Projeto-n64 
 
-<img alt="GitHub" src="https://img.shields.io/github/license/evecoutinho/projeto-n64?style=for-the-badge">
+<img alt="GitHub" src="https://img.shields.io/github/license/evecoutinho/projeto-n64">
 
 
